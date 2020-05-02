@@ -39,6 +39,8 @@ choco install curl                --limit-output
 choco install nuget.commandline   --limit-output
 choco install git.install         --limit-output -params '"/GitAndUnixToolsOnPath /NoShellIntegration"'
 choco install nvm.portable        --limit-output
+choco install nodejs              --limit-output
+choco install openjdk8            --limit-output
 choco install python              --limit-output
 choco install ruby                --limit-output
 
@@ -52,14 +54,15 @@ choco install Firefox             --limit-output
 # dev tools and frameworks
 choco install vscode              --limit-output
 choco install vim                 --limit-output
+choco install visualstudio2019professional --limit-output
 
 Refresh-Environment
 
-nvm on
-$nodeLtsVersion = choco search nodejs-lts --limit-output | ConvertFrom-String -TemplateContent "{Name:package-name}\|{Version:1.11.1}" | Select -ExpandProperty "Version"
-nvm install $nodeLtsVersion
-nvm use $nodeLtsVersion
-Remove-Variable nodeLtsVersion
+#nvm on
+#$nodeLtsVersion = choco search nodejs-lts --limit-output | ConvertFrom-String -TemplateContent "{Name:package-name}\|{Version:1.11.1}" | Select -ExpandProperty "Version"
+#nvm install $nodeLtsVersion
+##nvm use $nodeLtsVersion
+#Remove-Variable nodeLtsVersion
 
 gem pristine --all --env-shebang
 
@@ -81,4 +84,3 @@ Write-Host "Installing Janus..." -ForegroundColor "Yellow"
 if ((which curl) -and (which vim) -and (which rake) -and (which bash)) {
     curl.exe -L https://bit.ly/janus-bootstrap | bash
 }
-
