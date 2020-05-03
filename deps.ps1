@@ -35,26 +35,29 @@ if ((which cinst) -eq $null) {
 }
 
 # system and cli
-choco install curl                --limit-output
-choco install nuget.commandline   --limit-output
-choco install git.install         --limit-output -params '"/GitAndUnixToolsOnPath /NoShellIntegration"'
-choco install nvm.portable        --limit-output
-choco install nodejs              --limit-output
-choco install openjdk8            --limit-output
-choco install python              --limit-output
-choco install ruby                --limit-output
+choco install microsoft-windows-terminal    --limit-output
+choco install curl                          --limit-output
+choco install nuget.commandline             --limit-output
+choco install git.install                   --limit-output -params '"/GitAndUnixToolsOnPath /NoShellIntegration"'
+choco install nvm.portable                  --limit-output
+choco install nodejs                        --limit-output
+choco install azure-cli                     --limit-output
+choco install openjdk8                      --limit-output
+choco install python                        --limit-output
+choco install ruby                          --limit-output
 
 #fonts
-choco install sourcecodepro       --limit-output
+choco install sourcecodepro                 --limit-output
+choco install cascadiacode                  --limit-output
 
 # browsers
-choco install GoogleChrome        --limit-output
-choco install Firefox             --limit-output
+choco install GoogleChrome                  --limit-output
+choco install Firefox                       --limit-output
 
 # dev tools and frameworks
-choco install vscode              --limit-output
-choco install vim                 --limit-output
-choco install visualstudio2019professional --limit-output
+choco install vscode                        --limit-output
+choco install vim                           --limit-output
+choco install visualstudio2019professional  --limit-output
 
 Refresh-Environment
 
@@ -63,6 +66,8 @@ Refresh-Environment
 #nvm install $nodeLtsVersion
 ##nvm use $nodeLtsVersion
 #Remove-Variable nodeLtsVersion
+
+az extension add --name "azure-devops"
 
 gem pristine --all --env-shebang
 
