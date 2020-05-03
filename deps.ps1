@@ -21,9 +21,10 @@ Get-PackageProvider NuGet -Force | Out-Null
 #Get-PackageProvider Chocolatey -Force
 #Set-PackageSource -Name chocolatey -Trusted
 
-
 ### Install PowerShell Modules
 Write-Host "Installing PowerShell Modules..." -ForegroundColor "Yellow"
+Install-Module Posh-Git -Scope CurrentUser -Force
+Install-Module Oh-My-Posh -Scope CurrentUser -Force
 Install-Module PSWindowsUpdate -Scope CurrentUser -Force
 
 ### Chocolatey
